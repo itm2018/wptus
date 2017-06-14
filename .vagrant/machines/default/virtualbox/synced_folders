@@ -1,0 +1,1 @@
+{"virtualbox":{"/var/www":{"guestpath":"/var/www","hostpath":"D:/projects/web/wordpress","disabled":false,"__vagrantfile":true}}}
