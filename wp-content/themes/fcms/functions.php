@@ -131,10 +131,10 @@ if (!function_exists('fcms_pagination')) {
         ?>
         <nav class="pagination" role="navigation">
             <?php if (get_next_post_link()): ?>
-                <div class="prev"><?php next_post_link(__('Older Posts', 'fcms')) ?></div>
+                <div class="prev"><?php next_post_link('%link &raquo;',__('Older Posts', 'fcms')) ?></div>
             <?php endif; ?>
             <?php if (get_previous_post_link()): ?>
-                <div class="next"><?php previous_post_link(__('Newer Posts', 'fcms')) ?></div>
+                <div class="next"><?php previous_post_link('%link &raquo;',__('Newer Posts', 'fcms')) ?></div>
             <?php endif; ?>
         </nav>
         <?php
@@ -187,7 +187,7 @@ if (!function_exists('fcms_entry_meta')) {
         if (!is_page()):
             ?>
             <div class="entry-meta">
-                <?php printf(__('<span class="author">Posted by %1$s</span>', 'fcms'), get_the_author()) ?>
+                <?php printf(__('<span class="author">Posted by <a href="%1$s">%2$s</a></span>', 'fcms'), get_author_posts_url(get_the_author_meta('ID'), get_the_author_meta('user_nicename')), get_the_author()) ?>
                 <?php printf(__('<span class="date-published"> at %1$s</span>', 'fcms'), get_the_date()) ?>
                 <?php printf(__('<span class="category"> in %1$s</span>', 'fcms'), get_the_category_list(', ')) ?>
                 <?php
@@ -263,3 +263,16 @@ if (!function_exists('fcms_entry_tag')) {
         endif;
     }
 }
+
+/*
+ * Tạo sidebar cho theme
+ */
+$sidebar = array(
+    'name' => __('Main Sidebar', 'fcms'),
+    'id' => 'main-sidebar',
+    'description' => 'Main sidebar for fcms theme',
+    'class' => 'main-sidebar',
+    'before_title' => '<h3 class="widgettitle">',
+    'after_sidebar' => '</h3>'
+);
+register_sidebar( $sidebar );

@@ -1,7 +1,25 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: PCPV
- * Date: 06/14/2017
- * Time: 04:14 PM
+/*
+ Template Name: Contact
  */
+?>
+<?php get_header(); ?>
+
+    <div id="content">
+        <section id="main-content">
+            <div class="contact-info">
+                <h4>Địa chỉ liên lạc</h4>
+                <p>Ghi địa chỉ vào đây</p>
+                <p>090 456 765</p>
+            </div>
+            <div class="contact-form">
+                <?php echo do_shortcode('[CONTACT FORM]'); ?>
+            </div>
+        </section>
+        <section id="sidebar">
+            <?php get_sidebar(); ?>
+        </section>
+
+    </div>
+
+<?php get_footer(); ?>
